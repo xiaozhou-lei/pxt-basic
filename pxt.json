@@ -1,7 +1,7 @@
 {
-    "name": "tm1650",
+    "name": "basic",
     "version": "1.0.0",
-    "description": "",
+    "description": "PH2.0基础模块",
     "license": "MIT",
     "dependencies": {
         "core": "*"
