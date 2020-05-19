@@ -1,7 +1,7 @@
 {
-    "name": "basic",
+    "name": "_basic",
     "version": "1.0.0",
-    "description": "PH2.0基础模块",
+    "description": "PH2.0基础器件",
     "license": "MIT",
     "dependencies": {
         "core": "*"
@@ -10,7 +10,7 @@
         "README.md",
         "main.ts",
 		
-		"_locales/zh/basic-strings.json"
+		"_locales/zh/_basic-strings.json"
 		
     ],
     "public": true

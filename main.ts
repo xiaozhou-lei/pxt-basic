@@ -1,5 +1,5 @@
-//% color="#FF7F50" weight=10 icon="\uf785" block="basic"
-namespace basic{
+//% color="#FF7F50" weight=10 icon="\uf785" block="_basic"
+namespace _basic{
 	
 	
     /**
