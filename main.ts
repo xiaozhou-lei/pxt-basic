@@ -1,3 +1,14 @@
+enum _selectpin{
+	//% block="Apin"
+	Apin=0,
+	//% block="Bpin"
+	Bpin=1,
+	//% block="Dpin"
+	Dpin=2,
+}
+
+
+
 //% color="#FF7F50" weight=10 icon="\uf032" block="basicmodule"
 namespace basicmodule{
 	
@@ -11,4 +22,90 @@ namespace basicmodule{
     export function touchButton(pin: DigitalPin): number {
         return pins.digitalReadPin(pin)
     }
+	
+
+
+
+
+
+    /**
+     *  Button
+     */
+    
+    //% blockId=button block="Button |digital pin %pin" blockExternalInputs=false  group="按键开关"
+    //% weight=70
+    export function Button(pin: DigitalPin): number {
+        return pins.digitalReadPin(pin)
+    }
+
+
+
+
+
+
+    
+    /**
+     *  Crash Button
+     */
+    
+    //% blockId=crashbutton block="crashButton |digital pin %pin" blockExternalInputs=false  group="碰撞开关"
+    //% weight=70
+    export function crashButton(pin: DigitalPin): number {
+        return pins.digitalReadPin(pin)
+    }
+	    
+
+
+
+
+
+    
+    /**
+     *  Slide rheostat
+     */
+    
+    //% blockId=slideRheostat block="slideRheostat |analog pin %pin" blockExternalInputs=false  group="滑动变阻器"
+    //% weight=70
+    export function slideRheostat(pin: AnalogPin): number {
+        let row = pins.analogReadPin(pin)
+        let R = (1 - row / 1023) * 1000
+        return   R
+    }
+	          
+
+
+
+
+
+    
+    /**
+     *  Rotary encoder
+     */
+
+    let _Apin = 0
+    let _Dpin = 0
+    let _Bpin = 0
+    
+    //% blockId=rotaryEncoder block="rotaryEncoder setup | pinA %pina|pinB %pinb|pinD %pind" blockExternalInputs=false  group="旋转编码器"
+    //% weight=70
+    export function rotaryEncoder(pina: DigitalPin, pinb: DigitalPin, pind: DigitalPin): void {
+        _Apin = pina
+        _Bpin = pinb
+        _Dpin = pind  
+    }
+
+    //% blockId=pinsRead block="select pin  %selectpin" blockExternalInputs=false  group="旋转编码器"
+    //% weight=70
+    export function pinsRead(selectpin: _selectpin): number {
+        let a;
+        if (selectpin == 0)
+            a = _Apin
+        else if (selectpin == 1)
+            a = _Bpin
+        else if (selectpin == 2)
+            a = _Dpin
+        
+        return pins.digitalReadPin(a)
+	}
+
 }

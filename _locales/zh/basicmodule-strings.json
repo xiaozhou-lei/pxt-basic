@@ -1,5 +1,20 @@
 {
    "basicmodule|block": "基础模块",
-   "basicmodule.touchButton|block": "触摸 |数字检测引脚 %pin"
+   
+   "basicmodule.touchButton|block": "触摸开关 |数字读取引脚 %pin",
+   
+   "basicmodule.Button|block": "按键开关 |数字读取引脚 %pin",
+   
+   "basicmodule.crashButton|block": "碰撞开关 |数字读取引脚 %pin",
+   
+   "basicmodule.slideRheostat|block": "滑动变阻器 |模拟读取引脚 %pin",
+   
+   "_selectpin.Apin|block": "引脚A",
+   "_selectpin.Bpin|block": "引脚B",
+   "_selectpin.Dpin|block": "引脚D",
+   
+   
+   "basicmodule.rotaryEncoder|block": "旋转编码器初始化 | 引脚A %pina|引脚B %pinb|引脚D %pind",
+   "basicmodule.pinsRead|block": "数字读取引脚  %selectpin"
 
 }
