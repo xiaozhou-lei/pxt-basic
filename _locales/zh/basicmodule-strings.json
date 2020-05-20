@@ -15,11 +15,9 @@
 
 
 	"basicmodule.rotaryEncoder|block": "旋转编码器初始化 | 引脚A %pina|引脚B %pinb|引脚D %pind",
-	"basicmodule.pinsRead|block": "数字读取引脚  %selectpin"
+	"basicmodule.pinsRead|block": "数字读取引脚  %selectpin",
 
-	"_rockerpins.Xpin|block": "引脚X",
-	"_rockerpins.Ypin|block": "引脚Y",
-	"_rockerpins.Bpin|block": "引脚B",
+
 
 
 	"basicmodule.rockerPin|block": "摇杆引脚设置 |模拟引脚X %pinx|引脚Y %piny|引脚B %pinb",
