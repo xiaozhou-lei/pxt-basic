@@ -80,6 +80,24 @@ namespace basicmodule{
         let R = (1 - row / 1023) * 1000
         return   R
     }
+    	    
+
+
+
+
+
+    
+    /**
+     *  Rotary Potentiometer
+     */
+    
+    //% blockId=rotaryPotentiometer block="rotaryPotentiometer |analog pin %pin" blockExternalInputs=false  group="旋转电位器"
+    //% weight=70
+    export function rotaryPotentiometer(pin: AnalogPin): number {
+        let row = pins.analogReadPin(pin)
+        let V = (row / 1023) * 5
+        return   V
+    }
 	          
 
 
@@ -139,7 +157,7 @@ namespace basicmodule{
         Bpin = pinb  
     }
 
-    //% blockId=_analogRead block="from  %selectpin  read" blockExternalInputs=false  group="摇杆模块"
+    //% blockId=_analogRead block="select analog pin  %selectpin" blockExternalInputs=false  group="摇杆模块"
     //% weight=70
     export function _analogRead(selectpin: _rockerpin): number {
         let a
@@ -151,7 +169,7 @@ namespace basicmodule{
         return pins.analogReadPin(a)
     }
     
-    //% blockId=_digitalRead block="from   %selectpin  read" blockExternalInputs=false  group="摇杆模块"
+    //% blockId=_digitalRead block="from |%selectpin read" blockExternalInputs=false  group="摇杆模块"
     //% weight=70
     export function _digitalRead(selectpin: _rockerpin): number {
         let a

@@ -8,6 +8,8 @@
 	"basicmodule.crashButton|block": "碰撞开关 |数字读取引脚 %pin",
 
 	"basicmodule.slideRheostat|block": "滑动变阻器 |模拟读取引脚 %pin",
+	
+	"basicmodule.rotaryPotentiometer|block": "旋转电位器 |模拟读取引脚 %pin",
 
 	"_selectpin.Apin|block": "引脚A",
 	"_selectpin.Bpin|block": "引脚B",
