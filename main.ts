@@ -250,7 +250,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_set_strip_color" block="%strip|show color %rgb=neopixel_colors" 
         //% weight=85 blockGap=8
-        //% parts="neopixel"
+        //% parts="neopixel"  group="三色环"
         showColor(rgb: number) {
             rgb = rgb >> 0;
             this.setAllRGB(rgb);
@@ -264,7 +264,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_set_strip_rainbow" block="%strip|show rainbow from %startHue|to %endHue" 
         //% weight=85 blockGap=8
-        //% parts="neopixel"
+        //% parts="neopixel"  group="三色环"
         showRainbow(startHue: number = 1, endHue: number = 360) {
             if (this._length <= 0) return;
 
@@ -331,7 +331,7 @@ namespace basicmodule{
         //% weight=84
         //% blockId=neopixel_show_bar_graph block="%strip|show bar graph of %value|up to %high" 
         //% icon="\uf080"
-        //% parts="neopixel"
+        //% parts="neopixel"  group="三色环"
         showBarGraph(value: number, high: number): void {
             if (high <= 0) {
                 this.clear();
@@ -369,7 +369,7 @@ namespace basicmodule{
         //% blockId="neopixel_set_pixel_color" block="%strip|set pixel color at %pixeloffset|to %rgb=neopixel_colors" 
         //% blockGap=8
         //% weight=80
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel" advanced=true  group="三色环"
         setPixelColor(pixeloffset: number, rgb: number): void {
             this.setPixelRGB(pixeloffset >> 0, rgb >> 0);
         }
@@ -383,7 +383,7 @@ namespace basicmodule{
         //% blockId=neopixel_set_matrix_width block="%strip|set matrix width %width|rotation %rotation|chain %chain"
         //% blockGap=8
         //% weight=5
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel" advanced=true  group="三色环"
         setMatrixWidth(width: number, rotation: number, chain: number) {
             this._matrixWidth = Math.min(this._length, width >> 0);
             this._matrixRotation = rotation >> 0;
@@ -399,7 +399,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_set_matrix_color" block="%strip|set matrix color at x %x|y %y|to %rgb=neopixel_colors" 
         //% weight=4
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel" advanced=true  group="三色环"
         setMatrixColor(x: number, y: number, rgb: number) {
             if (this._matrixWidth <= 0) return; // not a matrix, ignore
             x = x >> 0;
@@ -434,7 +434,7 @@ namespace basicmodule{
         //% blockId="neopixel_set_pixel_white" block="%strip|set pixel white LED at %pixeloffset|to %white" 
         //% blockGap=8
         //% weight=80
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel" advanced=true  group="三色环"
         setPixelWhiteLED(pixeloffset: number, white: number): void {
             if (this._mode === NeoPixelMode.RGBW) {
                 this.setPixelW(pixeloffset >> 0, white >> 0);
@@ -447,7 +447,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_show" block="%strip|show" blockGap=8
         //% weight=79
-        //% parts="neopixel"
+        //% parts="neopixel"  group="三色环"
         show() {
             sendBuffer(this.buf, this.pin);
         }
@@ -458,7 +458,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_clear" block="%strip|clear"
         //% weight=76
-        //% parts="neopixel"
+        //% parts="neopixel"  group="三色环"
         clear(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             this.buf.fill(0, this.start * stride, this._length * stride);
@@ -468,7 +468,7 @@ namespace basicmodule{
          * Gets the number of pixels declared on the strip
          */
         //% blockId="neopixel_length" block="%strip|length" blockGap=8
-        //% weight=60 advanced=true
+        //% weight=60 advanced=true  group="三色环"
         length() {
             return this._length;
         }
@@ -479,7 +479,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_set_brightness" block="%strip|set brightness %brightness" blockGap=8
         //% weight=59
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel" advanced=true  group="三色环"
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
         }
@@ -489,7 +489,7 @@ namespace basicmodule{
          **/
         //% blockId="neopixel_each_brightness" block="%strip|ease brightness" blockGap=8
         //% weight=58
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel" advanced=true  group="三色环"
         easeBrightness(): void {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const br = this.brightness;
@@ -520,7 +520,7 @@ namespace basicmodule{
         //% weight=89
         //% blockId="neopixel_range" block="%strip|range from %start|with %length|leds"
         //% parts="neopixel"
-        //% blockSetVariable=range
+        //% blockSetVariable=range  group="三色环"
         range(start: number, length: number): Strip {
             start = start >> 0;
             length = length >> 0;
@@ -542,7 +542,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_shift" block="%strip|shift pixels by %offset" blockGap=8
         //% weight=40
-        //% parts="neopixel"
+        //% parts="neopixel"  group="三色环"
         shift(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -556,7 +556,7 @@ namespace basicmodule{
          */
         //% blockId="neopixel_rotate" block="%strip|rotate pixels by %offset" blockGap=8
         //% weight=39
-        //% parts="neopixel"
+        //% parts="neopixel"  group="三色环"
         rotate(offset: number = 1): void {
             offset = offset >> 0;
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -567,7 +567,7 @@ namespace basicmodule{
          * Set the pin where the neopixel is connected, defaults to P0.
          */
         //% weight=10
-        //% parts="neopixel" advanced=true
+        //% parts="neopixel" advanced=true  group="三色环"
         setPin(pin: DigitalPin): void {
             this.pin = pin;
             pins.digitalWritePin(this.pin, 0);
@@ -578,7 +578,7 @@ namespace basicmodule{
          * Estimates the electrical current (mA) consumed by the current light configuration.
          */
         //% weight=9 blockId=neopixel_power block="%strip|power (mA)"
-        //% advanced=true
+        //% advanced=true  group="三色环"
         power(): number {
             const stride = this._mode === NeoPixelMode.RGBW ? 4 : 3;
             const end = this.start + this._length;
@@ -684,7 +684,7 @@ namespace basicmodule{
     //% weight=90 blockGap=8
     //% parts="neopixel"
     //% trackArgs=0,2
-    //% blockSetVariable=strip
+    //% blockSetVariable=strip  group="三色环"
     export function create(pin: DigitalPin, numleds: number, mode: NeoPixelMode): Strip {
         let strip = new Strip();
         let stride = mode === NeoPixelMode.RGBW ? 4 : 3;
@@ -705,7 +705,7 @@ namespace basicmodule{
      * @param blue value of the blue channel between 0 and 255. eg: 255
      */
     //% weight=1
-    //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
+    //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue" group="三色环"
     //% advanced=true
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
@@ -715,7 +715,7 @@ namespace basicmodule{
      * Gets the RGB value of a known color
     */
     //% weight=2 blockGap=8
-    //% blockId="neopixel_colors" block="%color"
+    //% blockId="neopixel_colors" block="%color" group="三色环"
     //% advanced=true
     export function colors(color: NeoPixelColors): number {
         return color;
@@ -743,7 +743,7 @@ namespace basicmodule{
      * @param s saturation from 0 to 99
      * @param l luminosity from 0 to 99
      */
-    //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l"
+    //% blockId=neopixelHSL block="hue %h|saturation %s|luminosity %l" group="三色环"
     export function hsl(h: number, s: number, l: number): number {
         h = Math.round(h);
         s = Math.round(s);
