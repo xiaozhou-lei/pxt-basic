@@ -7,6 +7,15 @@ enum _selectpin{
 	Dpin=2,
 }
 
+enum _rockerpin{
+	//% block="Xpin"
+	Xpin=0,
+	//% block="Ypin"
+    Ypin = 1,
+    //% block="Bpin"
+    Bpin = 2,
+}
+
 
 
 //% color="#FF7F50" weight=10 icon="\uf032" block="basicmodule"
@@ -107,7 +116,52 @@ namespace basicmodule{
         
         return pins.digitalReadPin(a)
 	}
-	                
+	   	          
+
+
+
+
+
+    
+    /**
+     *  Rocker
+     */
+
+    let Xpin = 0
+    let Ypin = 0
+    let Bpin = 0
+    
+    //% blockId=rockerPin block="rockerPin setup | pinX %pinx|pinY %piny|pinB %pinb" blockExternalInputs=false  group="摇杆模块"
+    //% weight=70
+    export function rockerPin(pinx: AnalogPin, piny: AnalogPin, pinb: DigitalPin): void {
+        Xpin = pinx
+        Ypin = piny
+        Bpin = pinb  
+    }
+
+    //% blockId=_analogRead block="from  %selectpin  read" blockExternalInputs=false  group="摇杆模块"
+    //% weight=70
+    export function _analogRead(selectpin: _rockerpin): number {
+        let a
+        if (selectpin == 0)
+            a = Xpin
+        else if (selectpin == 1)
+            a = Ypin
+        
+        return pins.analogReadPin(a)
+    }
+    
+    //% blockId=_digitalRead block="from   %selectpin  read" blockExternalInputs=false  group="摇杆模块"
+    //% weight=70
+    export function _digitalRead(selectpin: _rockerpin): number {
+        let a
+        if (selectpin == 2)
+            a = Bpin
+        
+        return pins.analogReadPin(a)
+    }
+
+    
 
 
 }
