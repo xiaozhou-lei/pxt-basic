@@ -7,6 +7,16 @@ enum _selectpin{
 	Dpin=2,
 }
 
+enum _rockerpins{
+	//% block="Xpin"
+	Xpin=0,
+	//% block="Ypin"
+	Ypin=1,
+	//% block="Bpin"
+	Bpin=2,
+}
+
+
 
 
 //% color="#FF7F50" weight=10 icon="\uf032" block="basicmodule"
