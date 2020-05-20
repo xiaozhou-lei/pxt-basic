@@ -17,8 +17,6 @@ enum _rockerpins{
 }
 
 
-
-
 //% color="#FF7F50" weight=10 icon="\uf032" block="basicmodule"
 namespace basicmodule{
 	
