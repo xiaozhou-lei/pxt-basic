@@ -107,5 +107,44 @@ namespace basicmodule{
         
         return pins.digitalReadPin(a)
 	}
+	                
+
+
+
+
+
+    
+    /**
+     *  Rocker
+     */
+
+    let Xpin = 0
+    let Ypin = 0
+    let Bpin = 0
+    
+    //% blockId=rockerPin block="rockerPin set | pinX %pinx|pinY %piny|pinB %pinb" blockExternalInputs=false  group="摇杆模块"
+    //% weight=70
+    export function rockerPin(pinx: AnalogPin, piny: AnalogPin, pinb: DigitalPin): void {
+        Xpin = pinx
+        Ypin = piny
+        Bpin = pinb
+    }
+
+    //% blockId=_pinsRead block="select pin  %rockerpins" blockExternalInputs=false  group="摇杆模块"
+    //% weight=70
+    export function _pinsRead(rockerpins: _rockerpins): number {
+        let a;
+        if (rockerpins == 0 || rockerpins == 1){
+            if (rockerpins == 0)
+                a = Xpin   
+            else if (rockerpins == 1)
+                a = Ypin
+            return pins.analogReadPin(a)
+        }
+        else if (rockerpins == 2)
+            return pins.digitalReadPin(Bpin)
+    }
+	
+	
 
 }
