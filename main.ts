@@ -196,7 +196,7 @@ namespace basicmodule{
 	let _DIO = 0
     let _CLK = 0
     
-    //% blockId=basic_piano_pin block="basic_piano_pin |DIO pin %DIO|CLK pin %CLK" blockExternalInputs=false  group="摇杆模块"
+    //% blockId=basic_piano_pin block="basic_piano_pin |DIO pin %DIO|CLK pin %CLK" blockExternalInputs=false  group="钢琴模块"
     //% weight=70
     export function basic_piano_pin(DIO: DigitalPin, CLK: DigitalPin): void {
         
@@ -204,7 +204,7 @@ namespace basicmodule{
         _CLK = CLK
     }
 
-    //% blockId=basic_piano_play block="basic_piano_play" blockExternalInputs=false  group="摇杆模块"
+    //% blockId=basic_piano_play block="basic_piano_play" blockExternalInputs=false  group="钢琴模块"
     //% weight=70
     export function basic_piano_play(): void {
 
