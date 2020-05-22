@@ -27,9 +27,12 @@
 
 	"basicmodule.rockerPin|block": "摇杆引脚设置 |模拟引脚X %pinx|引脚Y %piny|引脚B %pinb",
 	"basicmodule._analogRead|block": "从  %selectpin 读取（模拟值）",
-	"basicmodule._digitalRead|block": "从  %selectpin 读取（数字值）"
-
-
+	"basicmodule._digitalRead|block": "从  %selectpin 读取（数字值）",
+	
+	
+	"basicmodule.basic_piano_pin|block": "钢琴模块初始化 |DIO引脚 %DIO|CLK引脚 %CLK",
+	"basicmodule.basic_piano_play|block": "弹奏钢琴"
+	
 	
 	
 

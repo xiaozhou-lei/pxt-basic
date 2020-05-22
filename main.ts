@@ -23,7 +23,7 @@ namespace basicmodule{
 	
 	
     /**
-     * Touch button
+     * 触摸按键
      */
     
     //% blockId=touchbutton block="touch |digital pin %pin" blockExternalInputs=false  group="触摸按键"
@@ -38,7 +38,7 @@ namespace basicmodule{
 
 
     /**
-     *  Button
+     *  按键开关
      */
     
     //% blockId=button block="Button |digital pin %pin" blockExternalInputs=false  group="按键开关"
@@ -54,7 +54,7 @@ namespace basicmodule{
 
     
     /**
-     *  Crash Button
+     *  碰撞开关
      */
     
     //% blockId=crashbutton block="crashButton |digital pin %pin" blockExternalInputs=false  group="碰撞开关"
@@ -70,7 +70,7 @@ namespace basicmodule{
 
     
     /**
-     *  Slide rheostat
+     *  滑动变阻器
      */
     
     //% blockId=slideRheostat block="slideRheostat |analog pin %pin" blockExternalInputs=false  group="滑动变阻器"
@@ -88,7 +88,7 @@ namespace basicmodule{
 
     
     /**
-     *  Rotary Potentiometer
+     *  旋转电位器
      */
     
     //% blockId=rotaryPotentiometer block="rotaryPotentiometer |analog pin %pin" blockExternalInputs=false  group="旋转电位器"
@@ -106,7 +106,7 @@ namespace basicmodule{
 
     
     /**
-     *  Rotary encoder
+     *  旋转编码器
      */
 
     let _Apin = 0
@@ -142,7 +142,7 @@ namespace basicmodule{
 
     
     /**
-     *  Rocker
+     *  摇杆模块
      */
 
     let Xpin = 0
@@ -177,6 +177,66 @@ namespace basicmodule{
             a = Bpin
         
         return pins.analogReadPin(a)
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 *  钢琴模块
+	 */
+	
+	let _DIO = 0
+    let _CLK = 0
+    
+    //% blockId=basic_piano_pin block="basic_piano_pin |DIO pin %DIO|CLK pin %CLK" blockExternalInputs=false  group="摇杆模块"
+    //% weight=70
+    export function basic_piano_pin(DIO: DigitalPin, CLK: DigitalPin): void {
+        
+        _DIO = DIO
+        _CLK = CLK
+    }
+
+    //% blockId=basic_piano_play block="basic_piano_play" blockExternalInputs=false  group="摇杆模块"
+    //% weight=70
+    export function basic_piano_play(): void {
+
+        if (0 == pins.digitalReadPin(_DIO)) {
+            let list: number[] = []
+            for (let index = 0; index <= 15; index++) {
+                for (let index2 = 0; index2 < 4; index2++) {
+                    pins.digitalWritePin(_CLK, 0)
+                }
+                for (let index2 = 0; index2 < 4; index2++) {
+                    pins.digitalWritePin(_CLK, 1)
+                }
+                list[index] = pins.digitalReadPin(_DIO)
+            }
+            if (!(list[0])) {
+                music.playTone(262, music.beat(BeatFraction.Half))
+            } else if (!(list[1])) {
+                music.playTone(294, music.beat(BeatFraction.Half))
+            } else if (!(list[2])) {
+                music.playTone(330, music.beat(BeatFraction.Half))
+            } else if (!(list[3])) {
+                music.playTone(349, music.beat(BeatFraction.Half))
+            } else if (!(list[4])) {
+                music.playTone(392, music.beat(BeatFraction.Half))
+            } else if (!(list[5])) {
+                music.playTone(440, music.beat(BeatFraction.Half))
+            } else if (!(list[6])) {
+                music.playTone(494, music.beat(BeatFraction.Half))
+            } else if (!(list[7])) {
+                music.playTone(523, music.beat(BeatFraction.Half))
+            }
+        }
     }
 
 
