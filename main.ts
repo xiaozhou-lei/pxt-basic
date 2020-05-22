@@ -176,7 +176,7 @@ namespace basicmodule{
         if (selectpin == 2)
             a = Bpin
         
-        return pins.analogReadPin(a)
+        return pins.digitalReadPin(a)
     }
 	
 	
